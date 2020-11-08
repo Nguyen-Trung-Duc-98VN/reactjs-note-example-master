@@ -6,8 +6,8 @@ import { connect, useSelector } from "react-redux";
 import { actAddNote } from "../../../actions/index";
 
 function AddNote(props) {
-  // const [content, setContent] = useState();
-  const content = useSelector(state => state.note.content);
+  const [content, setContent] = useState();
+  // const content = useSelector(state => state.note.content);
 
   //Refs: Giúp chúng ta tương tác với DOM thật
 
