@@ -6,14 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import store from "./store";
 
-//Gọi reducers
-import reducers from "./reducers/index";
-
-
-//Tạo store từ reducers
-const store = createStore(reducers);
 
 ReactDOM.render(
   

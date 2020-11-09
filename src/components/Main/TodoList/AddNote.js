@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 //Import actions vào đây
-import { actAddNote } from "../../../actions/index";
+import { actAddNote } from "../../../actions/noteAction";
 
 function AddNote(props) {
   const [content, setContent] = useState();

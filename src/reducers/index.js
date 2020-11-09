@@ -1,10 +1,11 @@
+import {combineReducers} from 'redux';
+import loginReducers from './loginReducer';
+import noteReducers from './noteReducer';
+import registerReducers from './registerReducer'
 
-//reducers/index.js
-import {combineReducers} from 'redux'
-import loginReducers from './loginReducer'
-import noteReducers from './noteReducer'
-
-export default combineReducers({
+const rootReducers = combineReducers({
     note: noteReducers,
     login: loginReducers,
+    register: registerReducers,
 })
+export default  rootReducers;

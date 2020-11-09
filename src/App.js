@@ -1,12 +1,12 @@
 //file: src/App.js
 import React from "react";
 import "./App.css";
-
-import Header from './components/Header/Header';
 import Main from "./components/Main/Main";
-import Footer from './components/Footer/Footer';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import PageLogin from "./pages/Login/PageLogin";
 
-function App(props) {
+function App() {
   return (
     <div id="wrapper">
       <Header/>

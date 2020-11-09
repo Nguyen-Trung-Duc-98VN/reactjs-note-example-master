@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./ShowNote.css";
 import { connect } from "react-redux";
-import { actEditNote, actRemoveNote } from "../../../actions/index";
+import { actEditNote, actRemoveNote } from "../../../actions/noteAction";
 
 function ShowNote(props) {
   const [noteContent, setNoteContent] = useState(props.noteData.content)

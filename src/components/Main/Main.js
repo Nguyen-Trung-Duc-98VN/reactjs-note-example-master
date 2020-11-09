@@ -2,9 +2,9 @@ import React from "react";
 
 import { HashRouter, Route } from "react-router-dom";
 import "./Main.css";
-import Home from "../../pages/Home/Home";
-import Register from "../../pages/Register/Register";
-import Login from "../../pages/Login/Login";
+import PageHome from "../../pages/Home/PageHome";
+import PageRegister from "../../pages/Register/PageRegister";
+import PageLogin from "../../pages/Login/PageLogin";
 
 function Main(props) {
 
@@ -12,9 +12,9 @@ function Main(props) {
     
     <HashRouter>
         <main>
-            <Route exact path="/" component={Home} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
+            <Route exact path="/" component={PageHome} />
+            <Route path="/page-register" component={PageRegister} />
+            <Route path="/page-login" component={PageLogin} />
         </main>
     </HashRouter>
   );
