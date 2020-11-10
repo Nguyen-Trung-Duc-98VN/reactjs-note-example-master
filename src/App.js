@@ -5,13 +5,18 @@ import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import PageLogin from "./pages/Login/PageLogin";
+import PageRegister from "./pages/Register/PageRegister";
+import { HashRouter, Route } from "react-router-dom";
+import PageHome from "./pages/Home/PageHome";
 
 function App() {
   return (
     <div id="wrapper">
-      <Header/>
-      <Main/>
-      <Footer/>
+      <HashRouter>
+        <Route exact path="/" component={PageLogin}/>
+        <Route path="/page-home" component={PageHome}/>
+        <Route path="/page-register" component={PageRegister}/>
+      </HashRouter>
     </div>
   );
 }

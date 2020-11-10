@@ -20,7 +20,6 @@ function TodoList(props) {
 
 // Lấy state từ store bằng mapStateToProps
 const mapStateToProps = (state, ownProps) => {
-  console.log(state)
   return {
     note: state.note,
   };

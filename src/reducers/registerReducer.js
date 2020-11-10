@@ -1,6 +1,10 @@
 import { ADD_NEW_USER, EDIT_USER, REMOVE_USER } from '../const/index';
 
-const registerReducer = (state = [], action) => {
+const initialState = {
+  list: [],
+}
+
+const registerReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_USER:{
 
@@ -11,8 +15,15 @@ const registerReducer = (state = [], action) => {
       //     password: action.payload.password,
       //   }]
       // };
-      state = [...state, { username: action.username, password: action.password }];
-      return state;
+      // state = [...state, { username: action.username, password: action.password }];
+      // return state;
+      const newList = [...state.list];
+      newList.push(action.payload);
+      
+      return {
+        ...state,
+        list: newList,
+      }
     }
     
     case EDIT_USER:{

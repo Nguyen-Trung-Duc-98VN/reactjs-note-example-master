@@ -1,25 +1,25 @@
 //file AddNote.js
 
 import React, { useState, useRef } from "react";
-import { connect, useSelector } from "react-redux";
-//Import actions vào đây
+import { useDispatch, useSelector } from "react-redux";
 import { actAddNote } from "../../../actions/noteAction";
 
-function AddNote(props) {
+function AddNote() {
   const [content, setContent] = useState();
-  // const content = useSelector(state => state.note.content);
+  // const contentHook = useSelector(state => state.note.list);
+
+  const dispatch = useDispatch();
+
 
   //Refs: Giúp chúng ta tương tác với DOM thật
 
-  const noteInput = useRef(null)
+  const noteInput = useRef(null);
 
   //Khi click vào nút thêm sẽ gọi hàm này,
   const handleAdd = () => {
-
-    // Dispatch action.
-    // Props này được tạo bởi hàm
-    // mapDispatchToProps bên dưới
-    props.addNote(content)
+    // console.log("content Hook: "+contentHook);
+    // console.log("content: "+content);
+    dispatch(actAddNote(content));
 
     //Gán giá trị cho input thành rỗng
     noteInput.current.value = ''
@@ -51,14 +51,4 @@ function AddNote(props) {
   );
 }
 
-//Chuyển dispatch thành props.
-//Ở đây nếu mình muốn dispatch action actAddNote
-//thì chỉ cần gọi props.addNote(content)
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addNote: (content) => {
-      dispatch(actAddNote(content));
-    },
-  };
-};
-export default connect(null, mapDispatchToProps)(AddNote);
+export default AddNote;

@@ -7,7 +7,7 @@ function Logo() {
 
   return (
     <HashRouter>
-      <Link to="/" className="navbar-brand">
+      <Link to="/page-home" className="navbar-brand">
         <img src={logo} className="App-logo" alt="logo" />
       </Link>
     </HashRouter>

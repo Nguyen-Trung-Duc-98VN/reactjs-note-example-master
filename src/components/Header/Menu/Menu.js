@@ -20,13 +20,13 @@ function Menu(props) {
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="/" className="nav-link active">Home</Link>
+                    <Link to="/page-home" className="nav-link active">Home</Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <Link to="/page-register" className="nav-link">Register</Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
-                    <Link to="/page-login" className="nav-link">Login</Link>
+                    <Link to="/" className="nav-link">Logout</Link>
                 </li>
             </ul>
         </div>

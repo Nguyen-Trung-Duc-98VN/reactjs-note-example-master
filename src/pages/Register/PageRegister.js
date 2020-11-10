@@ -1,47 +1,86 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useHistory, HashRouter, Link } from "react-router-dom";
 import { actAddUser } from "../../actions/registerAction";
-
 
 function Register() {
 
     const dispatch = useDispatch();
-
+    const listUser = useSelector( state => state.register.list );
     const { register, handleSubmit } = useForm();
-    const onSubmit = ( { username, password, confirPassword } ) => {
-        if(password === confirPassword)
-            dispatch( actAddUser( username, password ) );
-        else{
-            console.log('Error');
+
+    const onRegister = ( { username, password, confirPassword } ) => {
+        if( password === confirPassword ){
+            console.log(listUser);
+            const lengthListUser = listUser.length;
+            if( lengthListUser == 0 ){
+                dispatch( actAddUser( username, password ) );
+                console.log( "Dang ky thanh cong" );
+            }else{
+                for (let index = 0; index < lengthListUser; index++) {
+                    const account = listUser[index];
+                    if( account.username === username ){
+                        console.log("Trung tai khoan");
+                    }else{
+                        if( index !== listUser.length-1 ){
+                            continue;
+                        }
+                        dispatch( actAddUser( username, password ) );
+                        console.log( "Dang ky thanh cong" );
+                    }
+                }
+            }
+        }else{
+            console.log( 'Error' );
         }
     };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="container">
-            <div className="panel panel-primary">
-                <div className="panel-heading">
-                    <h2 className="text-center">Registation Form</h2>
-                </div>
-                <div className="panel-body">
-                    <div className="form-group">
-                        <label for="usr">Username:</label>
-                        <input required="true" className="form-control" name="username" ref={register} />
+    <HashRouter>
+        <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+                <div class="user_card">
+                    <div class="d-flex justify-content-center">
+                        <div class="brand_logo_container">
+                            Dang ky
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label for="pwd">Password:</label>
-                        <input required="true" type="password" className="form-control" name="password" ref={register}/>
+                    <div class="d-flex justify-content-center form_container">
+                        <form onSubmit={ handleSubmit( onRegister ) }>
+                            <div class="input-group mb-2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input required="true" className="form-control input_user" name="username" placeholder="username" ref={register} />
+                            </div>
+                            <div class="input-group mb-2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" required="true" className="form-control input_pass" name="password" ref={register} placeholder="password" />
+                            </div>
+                            <div class="input-group mb-2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" required="true" className="form-control input_pass" name="confirPassword" ref={register} placeholder="confir password" />
+                            </div>
+                            <div class="d-flex justify-content-center mt-3 login_container">
+                                <input className="btn login_btn" type="submit" value="Register" />
+                            </div>
+                        </form>
                     </div>
-                    <div className="form-group">
-                        <label for="confirmation_pwd">Confirmation Password:</label>
-                        <input required="true" type="password" className="form-control" name="confirPassword" ref={register} />
+            
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-center links">
+                            <Link to="/" className="ml-2">Back</Link>
+                        </div>
                     </div>
-                    <input className="btn btn-success" type="submit" value="Register" />
                 </div>
             </div>
-        </div>
-    </form>
+        </div>`
+    </HashRouter>
   );
 }
 
