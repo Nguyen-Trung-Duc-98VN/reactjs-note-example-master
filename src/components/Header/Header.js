@@ -2,18 +2,19 @@ import React from "react";
 
 import Menu from "./Menu/Menu";
 import "./Header.css";
+import { Col, Container, Row } from "react-bootstrap";
 
 function Header(props) {
 
   return (
     <header className="bg-primary">
-      <div className="container">
-      <div className="row">
-        <div className="col-md-12">
-          <Menu/>
-        </div>
-      </div>
-      </div>
+      <Container>
+        <Row>
+          <Col md={12}>
+            <Menu/>
+          </Col>
+        </Row>
+      </Container>
     </header>
   );
 }

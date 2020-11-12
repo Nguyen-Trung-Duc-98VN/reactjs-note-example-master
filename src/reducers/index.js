@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import loginReducers from './loginReducer';
-import noteReducers from './noteReducer';
-import registerReducers from './registerReducer'
+import registerReducers from './registerReducer';
+import todosSlice from '../features/Todos/todosSlice';
 
 const rootReducers = combineReducers({
-    note: noteReducers,
+    todos: todosSlice,
     login: loginReducers,
     register: registerReducers,
 })
