@@ -1,7 +1,7 @@
 import React from "react";
 
 import { HashRouter, Link } from "react-router-dom";
-import logo from "../../../images/logo_180x40.svg";
+import logo from '../../../App/assets/images/logo_180x40.svg';
 
 function Logo() {
 

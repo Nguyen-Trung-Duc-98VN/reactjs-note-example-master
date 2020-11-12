@@ -14,7 +14,7 @@ function Register() {
         if( password === confirPassword ){
             console.log(listUser);
             const lengthListUser = listUser.length;
-            if( lengthListUser == 0 ){
+            if( lengthListUser === 0 ){
                 dispatch( actAddUser( username, password ) );
                 console.log( "Dang ky thanh cong" );
             }else{
